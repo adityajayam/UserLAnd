@@ -13,7 +13,7 @@ apply plugin: 'jacoco'
 apply plugin: 'de.undercouch.download'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         // Version code is generated as time since June 1, 2019. These allows for constantly
@@ -22,7 +22,7 @@ android {
 
         applicationId "tech.ula"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode vcode
         versionName "2.8.3"
         
@@ -100,15 +100,15 @@ android {
     }
 
     // Enable this and run lintVitalRelease task to check missing translations.
-    lintOptions {
-        disable 'MissingTranslation'
-        disable 'ParcelCreator'
-    }
 
     testOptions {
         unitTests {
             includeAndroidResources = true
         }
+    }
+    namespace 'tech.ula'
+    lint {
+        disable 'MissingTranslation', 'ParcelCreator'
     }
 }
 
